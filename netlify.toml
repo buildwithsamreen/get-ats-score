@@ -7,6 +7,8 @@
 
 [build.environment]
   NODE_VERSION = "22"
+  # Public site URL for the sitemap, canonical links and social previews
+  VITE_SITE_URL = "https://getatsscore.netlify.app"
 
 # In-app pages such as /builder/<id> are handled by React; public pages have
 # their own pre-built HTML, which Netlify serves first.
