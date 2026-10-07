@@ -9,16 +9,22 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Stateless API for ATS Score: resume scoring, parsing and PDF/DOCX export.",
   "dependencies": {
-    "bcryptjs": "^3.0.3",
     "cors": "^2.8.5",
+    "docx": "^9.8.1",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
-    "jsonwebtoken": "^9.0.3",
-    "mongoose": "^9.0.2"
+    "express-rate-limit": "^8.7.1",
+    "mammoth": "^1.13.0",
+    "multer": "^2.4.0",
+    "pdf-parse": "^2.4.5",
+    "pdfkit": "^0.20.2"
   },
   "devDependencies": {
     "nodemon": "^3.1.11"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }

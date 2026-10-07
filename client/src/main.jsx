@@ -1,16 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import {BrowserRouter} from 'react-router-dom'
-import {AuthProvider} from './auth/AuthContext'
 import AppRoutes from './AppRoutes'
-import "bootstrap/dist/css/bootstrap.min.css";
+import '@fontsource-variable/inter'
+import './styles/theme.scss'
+import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-      <AuthProvider>
-        <AppRoutes />
-      </AuthProvider>
+      <AppRoutes />
     </BrowserRouter>
   </React.StrictMode>
 )

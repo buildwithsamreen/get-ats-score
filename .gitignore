@@ -1,0 +1,18 @@
+# Dependencies & builds
+node_modules/
+dist/
+
+# Local environment files (real values). The .env.example files are committed.
+.env
+.env.*
+!.env.example
+
+# OS / editor / logs
+.DS_Store
+*.log
+.vscode/*
+!.vscode/extensions.json
+.idea
+
+# Local Claude Code settings
+.claude/
