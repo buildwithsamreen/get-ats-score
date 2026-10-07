@@ -41,7 +41,8 @@ function withMeta(html, {title, description, url, siteUrl, article}) {
   return html
 }
 
-// Build-time SEO: one HTML file per public page (correct title and social tags
+// Build-time SEO: one HTML file per public page (/guides → guides.html, which
+// hosts serve at /guides without a trailing-slash redirect) (correct title and social tags
 // for crawlers that don't run JavaScript), plus sitemap.xml and robots.txt.
 function seoPages(siteUrl) {
   let outDir
@@ -56,7 +57,7 @@ function seoPages(siteUrl) {
       for (const [route, page] of Object.entries(PAGES)) {
         const url = `${siteUrl}${route === '/' ? '/' : route}`
         const html = withMeta(template, {...page, url, siteUrl})
-        const file = route === '/' ? path.join(outDir, 'index.html') : path.join(outDir, route, 'index.html')
+        const file = route === '/' ? path.join(outDir, 'index.html') : path.join(outDir, `${route}.html`)
         fs.mkdirSync(path.dirname(file), {recursive: true})
         fs.writeFileSync(file, html)
       }
