@@ -1,0 +1,16 @@
+# Netlify build settings for the client (the static site).
+# The API in /server is deployed separately (see README).
+[build]
+  base = "client"
+  command = "npm run build"
+  publish = "dist"   # relative to base, i.e. client/dist
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# In-app pages such as /builder/<id> are handled by React; public pages have
+# their own pre-built HTML, which Netlify serves first.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

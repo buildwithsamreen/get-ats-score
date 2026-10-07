@@ -39,6 +39,13 @@ Free Render services sleep after inactivity, so the first request after a while 
 
 ### 2. Client → Vercel (or Netlify)
 
+**Netlify:** `netlify.toml` already sets the base directory (`client`), build command and publish
+directory, so just import the repo and add the environment variables below under
+*Site configuration → Environment variables*. If you set build options in the Netlify UI, clear
+them so they don't override the file.
+
+**Vercel:**
+
 1. On [vercel.com](https://vercel.com): **Add New → Project**, pick the repo.
 2. Settings:
    - Root directory: `client`
