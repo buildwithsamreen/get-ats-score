@@ -65,7 +65,7 @@ function seoPages(siteUrl) {
       const today = new Date().toISOString().slice(0, 10)
       const urls = Object.entries(PAGES)
         .map(([route, page]) => {
-          const priority = route === '/' ? '1.0' : route.startsWith('/guides/') || route === '/resumes' ? '0.8' : '0.5'
+          const priority = route === '/' ? '1.0' : route.startsWith('/guides/') || route.startsWith('/keywords') || route === '/resumes' ? '0.8' : '0.5'
           return `  <url><loc>${siteUrl}${route}</loc><lastmod>${page.article?.updated || today}</lastmod><priority>${priority}</priority></url>`
         })
         .join('\n')
@@ -90,6 +90,8 @@ export default defineConfig(({mode}) => {
   }
   return {
     plugins: [react(), seoPages(siteUrl)],
+    // Role keyword data is shared with the server (server/content/roles.json)
+    server: {fs: {allow: ['..']}},
     css: {
       preprocessorOptions: {
         // Bootstrap 5.3's SCSS predates Dart Sass modules; hide its deprecation noise

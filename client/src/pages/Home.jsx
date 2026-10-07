@@ -1,5 +1,5 @@
 import {useRef, useState} from 'react'
-import {Link, useNavigate} from 'react-router-dom'
+import {Link, useNavigate, useSearchParams} from 'react-router-dom'
 import {Container, Button, Row, Col, Modal, ProgressBar, Form, Alert, Spinner} from 'react-bootstrap'
 import {ArrowRight, BookOpen, Clock, Download, FileCheck, FileUp, Gauge, LayoutTemplate, Lock, Mail, Plus, Search, ShieldCheck, Sparkles, Target, Upload, Wand2, Zap} from 'lucide-react'
 import {AtsAPI} from '../api/ats'
@@ -28,7 +28,9 @@ export default function Home() {
   const [fileName, setFileName] = useState('')
   const [jobDescription, setJobDescription] = useState('')
   const [showJd, setShowJd] = useState(false)
-  const [role, setRole] = useState('')
+  // ?role=<id> pre-selects a target role (used by the keyword pages)
+  const [searchParams] = useSearchParams()
+  const [role, setRole] = useState(() => searchParams.get('role') || '')
   const roles = useRoles()
   const [lastFile, setLastFile] = useState(null)
   const [importing, setImporting] = useState(false)
@@ -289,6 +291,20 @@ export default function Home() {
               </Col>
             ))}
           </Row>
+        </section>
+
+        <section className='pb-4' aria-labelledby='kw-heading'>
+          <div className='surface-card p-4 d-flex flex-wrap align-items-center justify-content-between gap-3'>
+            <div>
+              <h2 id='kw-heading' className='h5 fw-bold mb-1'>Resume keywords for your role</h2>
+              <p className='text-secondary small mb-0'>
+                See the skills ATS systems look for in 23 jobs, from software engineer to nurse.
+              </p>
+            </div>
+            <Link to='/keywords' className='btn btn-outline-primary'>
+              Browse keywords <ArrowRight size={15} aria-hidden='true' />
+            </Link>
+          </div>
         </section>
 
         <Faq />

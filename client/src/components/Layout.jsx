@@ -18,7 +18,7 @@ export function Brand() {
 
 const FOOTER_LINKS = [
   {title: 'Product', links: [['ATS checker', '/'], ['Resume builder', '/resumes'], ['Cover letters', '/letters']]},
-  {title: 'Resources', links: [['All guides', '/guides'], ['What is an ATS?', '/guides/what-is-an-ats'], ['ATS checklist', '/guides/ats-friendly-resume-checklist']]},
+  {title: 'Resources', links: [['All guides', '/guides'], ['What is an ATS?', '/guides/what-is-an-ats'], ['ATS checklist', '/guides/ats-friendly-resume-checklist'], ['Keywords by role', '/keywords']]},
   {title: 'About', links: [['Privacy', '/privacy'], ['Terms', '/terms'], ['Contact', '/contact']]},
 ]
 
@@ -50,6 +50,9 @@ export default function Layout() {
               </Nav.Link>
               <Nav.Link as={NavLink} to='/guides' eventKey='guides'>
                 Guides
+              </Nav.Link>
+              <Nav.Link as={NavLink} to='/keywords' eventKey='keywords'>
+                Keywords
               </Nav.Link>
               <div className='d-flex align-items-center gap-2 ms-lg-2 mt-2 mt-lg-0'>
                 <Button as={Link} to='/resumes?new=1' variant='primary' size='sm' className='px-3'>

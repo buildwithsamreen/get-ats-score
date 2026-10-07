@@ -7,6 +7,7 @@ import Letters from './pages/Letters'
 import LetterEditor from './pages/LetterEditor'
 import {Privacy, Terms, Contact} from './pages/InfoPages'
 import {GuideList, Guide} from './pages/Guides'
+import {KeywordIndex, KeywordPage} from './pages/Keywords'
 
 // Remount editors when switching documents so their state resets.
 function BuilderRoute() {
@@ -30,6 +31,8 @@ export default function AppRoutes() {
         <Route path='/letters/:id' element={<LetterRoute />} />
         <Route path='/guides' element={<GuideList />} />
         <Route path='/guides/:slug' element={<Guide />} />
+        <Route path='/keywords' element={<KeywordIndex />} />
+        <Route path='/keywords/:slug' element={<KeywordPage />} />
         <Route path='/privacy' element={<Privacy />} />
         <Route path='/terms' element={<Terms />} />
         <Route path='/contact' element={<Contact />} />

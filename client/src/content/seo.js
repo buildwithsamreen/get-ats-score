@@ -1,6 +1,7 @@
 // Page titles/descriptions. Plain data (no JSX) because vite.config.js also
 // imports it at build time to write per-route HTML with the right meta tags.
 import {GUIDES} from './guides.js'
+import {ROLE_PAGES} from './roleKeywords.js'
 
 export const SITE_NAME = 'ATS Score'
 export const DEFAULT_DESCRIPTION =
@@ -32,6 +33,15 @@ export const PAGES = {
   '/privacy': {title: 'Privacy Policy', description: 'How ATS Score handles your data: resumes stay in your browser and uploads are never stored.'},
   '/terms': {title: 'Terms of Use', description: 'Terms of use for the ATS Score resume checker and builder.'},
   '/contact': {title: 'Contact', description: 'Questions or feedback about ATS Score? Get in touch.'},
+}
+
+PAGES['/keywords'] = {
+  title: 'Resume Keywords by Job Role',
+  description:
+    'ATS resume keywords for 23 job roles, from software engineer and data analyst to nurse and teacher, with synonyms, example summaries and bullet points.',
+}
+for (const r of ROLE_PAGES) {
+  PAGES[`/keywords/${r.slug}`] = {title: r.title, description: r.description}
 }
 
 for (const g of GUIDES) {
